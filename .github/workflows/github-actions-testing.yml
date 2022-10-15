@@ -2,8 +2,7 @@ name: Testing the Python code
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main, AddXmlFile ]
 
 jobs:
   build:
