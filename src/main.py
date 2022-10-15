@@ -3,6 +3,7 @@ import argparse
 import sys
 
 from CalcRating import CalcRating
+from CheckingStudents import CheckingStudents
 from TextDataReader import TextDataReader
 from XmlDataReader import XmlDataReader
 
@@ -25,7 +26,14 @@ def main():
     print("Students: ", students)
 
     rating = CalcRating(students).calc()
-    print("Rating: ", rating)
+
+    print('\nПроверка студентов, имеющих 100 баллов по всем дисциплинам:')
+    if CheckingStudents(rating).check():
+        print('   Студент ' + CheckingStudents(rating).check() +
+              ' имеет 100 баллов по всем дисциплинам')
+    else:
+        print('   Студенты, имеющие 100 баллов по всем дисциплинам '
+              'отсутствуют')
 
 
 if __name__ == "__main__":
